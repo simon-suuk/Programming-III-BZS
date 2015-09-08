@@ -30,7 +30,7 @@ public class CommandLineArguments {
                 System.out.println("The maximum number is: " + j);
             }
         } catch (Exception e) {
-	 
+		localCommandLineArguments.showUserHelp();
         }
     }
 
@@ -71,6 +71,17 @@ public class CommandLineArguments {
             }
         }
         return i;
+    }
+    
+  /**
+    * This is to display a user guide in case no command line arguments are provided by the user
+    */
+    public void showUserHelp() {
+	System.out.println("Hey buddy!!! you did not provide any arguments at command line");
+        System.out.println("You might want to try one of the following commands:");
+        System.out.println("'java CommandLineArguments table <int>'");
+        System.out.println("'java CommandLineArguments fact <int>'");
+        System.out.println("'java CommandLineArguments max <ints separated by spaces>'");
     }
 
     
