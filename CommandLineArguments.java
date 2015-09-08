@@ -20,7 +20,14 @@ public class CommandLineArguments {
                  System.out.println(i + " factorial using recursive method is: " + localCommandLineArguments.generateFactorialRecursively(i));
                  System.out.println(i + " factorial using for loop is: " + localCommandLineArguments.generateFactorialForLoop(i));
             } else if (paramArrayOfString[0].equals("max")) {
-		 
+		 for (String str2 : paramArrayOfString) {
+                    if (!str2.equals("max")) {
+                        if (Integer.parseInt(str2) > j) {
+                            j = Integer.parseInt(str2);
+                        }
+                    }
+                }
+                System.out.println("The maximum number is: " + j);
             }
         } catch (Exception e) {
 	 
@@ -52,6 +59,16 @@ public class CommandLineArguments {
         int i = 1;
         for (int j = paramInt; j > 1; j--) {
             i *= j;
+        }
+        return i;
+    }
+    
+    public int getMax(int... paramVarArgs) {
+        int i = Integer.MIN_VALUE;
+        for (int m : paramVarArgs) {
+            if (m > i) {
+                i = m;
+            }
         }
         return i;
     }
