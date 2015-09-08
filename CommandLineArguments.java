@@ -3,13 +3,18 @@
  * @author Simon
  */
 public class CommandLineArguments {
-
+	
+    /**
+	* This is the starting point of the program
+	* @param paramArrayOfString is an array of command line arguments
+	* @throws ArrayIndexOutOfBoundsException if invalid index is encountered
+	*/
     public static void main(String[] paramArrayOfString)
             throws ArrayIndexOutOfBoundsException {
 
         CommandLineArguments localCommandLineArguments = new CommandLineArguments();
-        int i = 0;
-        int j = Integer.MIN_VALUE;
+        int i = 0; // index of paramArrayOfString
+        int j = Integer.MIN_VALUE; // maximum number among the given number of ints
 
         try {
             if (paramArrayOfString[0].equals("table")) {
@@ -20,10 +25,10 @@ public class CommandLineArguments {
                  System.out.println(i + " factorial using recursive method is: " + localCommandLineArguments.generateFactorialRecursively(i));
                  System.out.println(i + " factorial using for loop is: " + localCommandLineArguments.generateFactorialForLoop(i));
             } else if (paramArrayOfString[0].equals("max")) {
-		 for (String str2 : paramArrayOfString) {
-                    if (!str2.equals("max")) {
-                        if (Integer.parseInt(str2) > j) {
-                            j = Integer.parseInt(str2);
+		 for (String str : paramArrayOfString) {
+                    if (!str.equals("max")) {
+                        if (Integer.parseInt(str) > j) {
+                            j = Integer.parseInt(str);
                         }
                     }
                 }
@@ -34,7 +39,10 @@ public class CommandLineArguments {
         }
     }
 
-   
+   /**
+	* This is to generate a multiplication table for a given number
+	* @param paramInt is of type int
+	*/
     public void generateMultiplicationTable(int paramInt) {
         System.out.println("**********************************");
         System.out.println("**\t   " + paramInt + " Times Table\t**");
@@ -48,6 +56,11 @@ public class CommandLineArguments {
         System.out.println("**********************************");
     }
     
+    /**
+	* This is to generate the factorial of a given number using a recursive approach
+	* @param paramInt is of type int
+	* @return the factorial of a given number
+	*/
     public int generateFactorialRecursively(int paramInt) {
         if (paramInt == 0) {
             return 1;
@@ -55,6 +68,11 @@ public class CommandLineArguments {
         return paramInt * generateFactorialRecursively(paramInt - 1);
     }
 
+    /**
+	* This is to generate the factorial of a given number using a for loop
+	* @param paramInt is of type int
+	* @return the factorial of a given number
+	*/
     public int generateFactorialForLoop(int paramInt) {
         int i = 1;
         for (int j = paramInt; j > 1; j--) {
@@ -63,6 +81,11 @@ public class CommandLineArguments {
         return i;
     }
     
+     /**
+	* This is to get the maximum number among some given numbers
+	* @param paramVarArgs are ints
+	* @return the maximum among some given numbers
+	*/
     public int getMax(int... paramVarArgs) {
         int i = Integer.MIN_VALUE;
         for (int m : paramVarArgs) {
