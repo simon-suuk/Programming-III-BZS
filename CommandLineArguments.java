@@ -16,15 +16,14 @@ public class CommandLineArguments {
                 i = Integer.parseInt(paramArrayOfString[1]);
                 localCommandLineArguments.generateMultiplicationTable(i);
             } else if (paramArrayOfString[0].equals("fact")) {
-                
-                
+                 i = Integer.parseInt(paramArrayOfString[1]);
+                 System.out.println(i + " factorial using recursive method is: " + localCommandLineArguments.generateFactorialRecursively(i));
+                 System.out.println(i + " factorial using for loop is: " + localCommandLineArguments.generateFactorialForLoop(i));
             } else if (paramArrayOfString[0].equals("max")) {
-		    
-		
+		 
             }
         } catch (Exception e) {
-            
-		
+	 
         }
     }
 
@@ -40,6 +39,21 @@ public class CommandLineArguments {
             System.out.print(str);
         }
         System.out.println("**********************************");
+    }
+    
+    public int generateFactorialRecursively(int paramInt) {
+        if (paramInt == 0) {
+            return 1;
+        }
+        return paramInt * generateFactorialRecursively(paramInt - 1);
+    }
+
+    public int generateFactorialForLoop(int paramInt) {
+        int i = 1;
+        for (int j = paramInt; j > 1; j--) {
+            i *= j;
+        }
+        return i;
     }
 
     
